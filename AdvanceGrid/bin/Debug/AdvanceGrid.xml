@@ -1,0 +1,62 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+AdvanceGrid
+</name>
+</assembly>
+<members>
+<member name="P:AdvanceGrid.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:AdvanceGrid.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:AdvanceGrid.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="P:AdvanceGrid.AdvanceGrid.Filter">
+	<summary>
+ Read only property returens the complete filter string
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:AdvanceGrid.AdvanceGrid.SearchColor">
+	<summary>
+ Gets or sets the color for the search boxes
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:AdvanceGrid.AdvanceGrid.SearcheValues">
+	<summary>
+ Gets or sets Dictionary of all columns and their search values 
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:AdvanceGrid.AdvanceGrid.Arrange">
+	<summary>
+ Arranges Left and Width of search boxes to match the grid's columns.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:AdvanceGrid.AdvanceGrid.Sort(System.Windows.Forms.DataGridViewColumn,System.ComponentModel.ListSortDirection)">
+	<summary>
+ Sorts the contents of the System.Windows.Forms.DataGridView control in ascending or descending order based on the contents of the specified column.
+ </summary>
+	<param name="dataGridViewColumn">he column by which to sort the contents of the System.Windows.Forms.DataGridView.</param>
+	<param name="direction">One of the System.ComponentModel.ListSortDirection values.</param>
+	<remarks></remarks>
+</member><member name="M:AdvanceGrid.AdvanceGrid.Search">
+	<summary>
+ Performs search on the grid by applying all searches found in SearchValues dictionary.
+ </summary>
+	<remarks></remarks>
+</member>
+</members>
+</doc>
