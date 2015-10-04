@@ -55,7 +55,7 @@
         Me.dgv.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgv.Location = New System.Drawing.Point(0, 20)
         Me.dgv.Name = "dgv"
-        Me.dgv.Size = New System.Drawing.Size(450, 407)
+        Me.dgv.Size = New System.Drawing.Size(450, 315)
         Me.dgv.TabIndex = 6
         '
         'panLower
@@ -63,7 +63,7 @@
         Me.panLower.Controls.Add(Me.lblErrors)
         Me.panLower.Controls.Add(Me.lblCount)
         Me.panLower.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.panLower.Location = New System.Drawing.Point(0, 427)
+        Me.panLower.Location = New System.Drawing.Point(0, 335)
         Me.panLower.Name = "panLower"
         Me.panLower.Size = New System.Drawing.Size(450, 20)
         Me.panLower.TabIndex = 7
@@ -121,7 +121,7 @@
         Me.Controls.Add(Me.panUpper)
         Me.Controls.Add(Me.panLower)
         Me.Name = "AdvanceGrid"
-        Me.Size = New System.Drawing.Size(450, 447)
+        Me.Size = New System.Drawing.Size(450, 355)
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panLower.ResumeLayout(False)
         Me.panLower.PerformLayout()
