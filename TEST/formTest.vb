@@ -16,5 +16,8 @@
         DT.Rows.Add("Norway", 1500, True)
 
         AdvanceGrid1.DataSource = DT
+
+        MessageBox.Show("Done loading")
+
     End Sub
 End Class
