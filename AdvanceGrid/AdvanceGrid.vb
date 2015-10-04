@@ -1,6 +1,6 @@
 ﻿<System.ComponentModel.Designer(GetType(AdvanceGridDesigner))> _
     <ToolboxBitmap(GetType(AdvanceGrid), "AdvanceGrid.png")> _
-    Public Class AdvanceGrid
+Public Class AdvanceGrid
     Friend popup As New ToolStripDropDown With {.Padding = Padding.Empty}
     Friend WithEvents popupAllColumns As New CheckedListBox With {.CheckOnClick = True}
 
