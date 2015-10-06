@@ -5,7 +5,7 @@ Public Class AdvanceGrid
     Friend WithEvents popupAllColumns As New CheckedListBox With {.CheckOnClick = True}
 
     Shadows Event TextChanged(ByVal sender As Object)
-
+    Shadows Event SelectionChanged(sender As Object, e As EventArgs)
     'dgv methods
     Public Sub BeginEdit(ByVal selectAll As Boolean)
         dgv.BeginEdit(selectAll)
@@ -86,7 +86,6 @@ Public Class AdvanceGrid
         End If
     End Sub
 
-
     Private Sub dgv_Arrange() Handles dgv.ColumnWidthChanged,
                                       dgv.Scroll,
                                       dgv.ColumnDisplayIndexChanged,
@@ -94,6 +93,11 @@ Public Class AdvanceGrid
                                       dgv.Resize
         Arrange()
     End Sub
+
+    Private Sub dgv_SelectionChanged(sender As Object, e As EventArgs) Handles dgv.SelectionChanged
+        RaiseEvent SelectionChanged(sender, e)
+    End Sub
+
     Private Sub dgv_CellLeave(sender As Object, e As DataGridViewCellEventArgs) Handles dgv.CellLeave
         If dgv.IsCurrentCellDirty Then dgv.CurrentCell.Style.BackColor = Color.Pink
     End Sub
@@ -334,6 +338,12 @@ Public Class AdvanceGrid
         End Get
     End Property
 
+    ReadOnly Property CurrentRow As DataGridViewRow
+        Get
+            Return dgv.CurrentRow
+        End Get
+    End Property
+
     Public Property ClipboardCopyMode
         Get
             Return dgv.ClipboardCopyMode
@@ -386,6 +396,8 @@ Public Class AdvanceGrid
     Private Sub Button1_Click(sender As Object, e As EventArgs)
 
     End Sub
+
+
 End Class
 
 
