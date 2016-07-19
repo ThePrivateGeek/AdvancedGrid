@@ -58,14 +58,49 @@ Namespace My
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("<?xml version=""1.0"" encoding=""utf-16""?>"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"<ArrayOfString xmlns:xsi=""http://www.w3."& _ 
             "org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  <s"& _ 
-            "tring>0:100:0:True</string>"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"</ArrayOfString>")>  _
-        Public Property ColumnsProperties() As Global.System.Collections.Specialized.StringCollection
+            "tring>0:True</string>"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"</ArrayOfString>")>  _
+        Public Property setColProp() As Global.System.Collections.Specialized.StringCollection
             Get
-                Return CType(Me("ColumnsProperties"),Global.System.Collections.Specialized.StringCollection)
+                Return CType(Me("setColProp"),Global.System.Collections.Specialized.StringCollection)
             End Get
             Set
-                Me("ColumnsProperties") = value
+                Me("setColProp") = value
             End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Ascending")>  _
+        Public Property setDirection() As Global.System.ComponentModel.ListSortDirection
+            Get
+                Return CType(Me("setDirection"),Global.System.ComponentModel.ListSortDirection)
+            End Get
+            Set
+                Me("setDirection") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property setSortedColIndex() As Integer
+            Get
+                Return CType(Me("setSortedColIndex"),Integer)
+            End Get
+            Set
+                Me("setSortedColIndex") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=ATS-SRV-SQL01;Initial Catalog=ats;Persist Security Info=True;User ID="& _ 
+            "sa;Password=!!atssa+P")>  _
+        Public ReadOnly Property atsConnectionString() As String
+            Get
+                Return CType(Me("atsConnectionString"),String)
+            End Get
         End Property
     End Class
 End Namespace
@@ -78,9 +113,9 @@ Namespace My
     Friend Module MySettingsProperty
         
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.TEST.My.MySettings
+        Friend ReadOnly Property Settings() As Global.TESTING.My.MySettings
             Get
-                Return Global.TEST.My.MySettings.Default
+                Return Global.TESTING.My.MySettings.Default
             End Get
         End Property
     End Module

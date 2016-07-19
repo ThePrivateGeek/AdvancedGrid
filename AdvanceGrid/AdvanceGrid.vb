@@ -1,11 +1,12 @@
-﻿<System.ComponentModel.Designer(GetType(AdvanceGridDesigner))> _
-    <ToolboxBitmap(GetType(AdvanceGrid), "AdvanceGrid.png")> _
+﻿<System.ComponentModel.Designer(GetType(AdvanceGridDesigner))>
+<ToolboxBitmap(GetType(AdvanceGrid), "AdvanceGrid.png")>
 Public Class AdvanceGrid
     Friend popup As New ToolStripDropDown With {.Padding = Padding.Empty}
     Friend WithEvents popupAllColumns As New CheckedListBox With {.CheckOnClick = True}
 
     Shadows Event TextChanged(ByVal sender As Object)
     Shadows Event SelectionChanged(sender As Object, e As EventArgs)
+    Event ColumnsVisibilityChanged(ByVal sender As Object, e As ItemCheckEventArgs)
     'dgv methods
     Public Sub BeginEdit(ByVal selectAll As Boolean)
         dgv.BeginEdit(selectAll)
@@ -106,7 +107,7 @@ Public Class AdvanceGrid
     Private Sub popupAllColoumns_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles popupAllColumns.ItemCheck
         dgv.Columns(e.Index).Visible = e.NewValue = CheckState.Checked
         Arrange()
-
+        RaiseEvent ColumnsVisibilityChanged(sender, e)
     End Sub
 
     'search pannel handelers
@@ -200,7 +201,7 @@ Public Class AdvanceGrid
             Return dgv.Columns
         End Get
     End Property
-    <System.ComponentModel.DefaultValue(True)> _
+    <System.ComponentModel.DefaultValue(True)>
     Property AllowUserToDeleteRows As Boolean
         Get
             Return dgv.AllowUserToDeleteRows
@@ -209,7 +210,7 @@ Public Class AdvanceGrid
             dgv.AllowUserToDeleteRows = value
         End Set
     End Property
-    <System.ComponentModel.DefaultValue(True)> _
+    <System.ComponentModel.DefaultValue(True)>
     Property AllowUserToAddRows As Boolean
         Get
             Return dgv.AllowUserToAddRows
@@ -218,7 +219,7 @@ Public Class AdvanceGrid
             dgv.AllowUserToAddRows = value
         End Set
     End Property
-    <System.ComponentModel.DefaultValue(True)> _
+    <System.ComponentModel.DefaultValue(True)>
     Property AllowUserToOrderColumns As Boolean
         Get
             Return dgv.AllowUserToOrderColumns
@@ -227,7 +228,7 @@ Public Class AdvanceGrid
             dgv.AllowUserToOrderColumns = value
         End Set
     End Property
-    <System.ComponentModel.DefaultValue(True)> _
+    <System.ComponentModel.DefaultValue(True)>
     Property AllowUserToResizeColumns As Boolean
         Get
             Return dgv.AllowUserToResizeColumns
@@ -236,7 +237,7 @@ Public Class AdvanceGrid
             dgv.AllowUserToResizeColumns = value
         End Set
     End Property
-    <System.ComponentModel.DefaultValue(True)> _
+    <System.ComponentModel.DefaultValue(True)>
     Property AllowUserToResizeRows As Boolean
         Get
             Return dgv.AllowUserToResizeRows
@@ -245,7 +246,7 @@ Public Class AdvanceGrid
             dgv.AllowUserToResizeRows = value
         End Set
     End Property
-    <System.ComponentModel.DefaultValue(False)> _
+    <System.ComponentModel.DefaultValue(False)>
     Property ReadOnlyGrid As Boolean
         Get
             Return dgv.ReadOnly
@@ -392,12 +393,6 @@ Public Class AdvanceGrid
             End Select
         Next
     End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-
 End Class
 
 

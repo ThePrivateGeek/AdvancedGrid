@@ -1,7 +1,5 @@
 ﻿Public Class formTest
 
-
-
     Private Sub formTest_Load(sender As Object, e As EventArgs) Handles Me.Load
         'Create a new Data Table
         Dim DT As New DataTable
@@ -10,7 +8,7 @@
         DT.Columns.Add("Col01_String", GetType(String))
         DT.Columns.Add("Col02_Integer", GetType(Integer))
         DT.Columns.Add("Col03_Boolean", GetType(Boolean))
-
+        DT.Columns.Add("Col04_String", GetType(String))
         'Add some rows
         DT.Rows.Add("France", 4500, True)
         DT.Rows.Add("Germny", 5100, True)
@@ -24,6 +22,31 @@
 
         AdvanceGrid1.Dock = DockStyle.Left
 
+
+        'Load columns properites
+        Try
+            For Each columnProperty In My.Settings.ColumnsProperties
+                Dim colParts() As String = columnProperty.Split(":")
+                Dim index As Integer = Val(colParts(0))
+                With AdvanceGrid1.Columns(index)
+                    .Width = colParts(1)
+                    .DisplayIndex = colParts(2)
+                    .Visible = colParts(3)
+                End With
+            Next
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        AdvanceGrid1.Arrange()
+
+
+
+    End Sub
+    Private Sub formTest_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        My.Settings.ColumnsProperties.Clear()
+        For Each col As DataGridViewColumn In AdvanceGrid1.Columns
+            My.Settings.ColumnsProperties.Add(col.Index & ":" & col.Width & ":" & col.DisplayIndex & ":" & col.Visible)
+        Next
     End Sub
 
 
@@ -46,5 +69,10 @@
     End Sub
 
 
-
+    Private Sub AdvanceGrid1_ColumnsVisibilityChanged(sender As Object, e As ItemCheckEventArgs) Handles AdvanceGrid1.ColumnsVisibilityChanged
+        TextBox3.Text = String.Empty
+        For Each col As DataGridViewColumn In AdvanceGrid1.Columns
+            TextBox3.Text &= col.Name & ":" & col.Visible & vbCrLf
+        Next
+    End Sub
 End Class
